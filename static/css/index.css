@@ -1,0 +1,11 @@
+nav {
+    text-align: center;
+}
+
+.row {
+    /*margin-left: 10%;*/
+}
+
+.row div.col-md-4 {
+    float: right;
+}
