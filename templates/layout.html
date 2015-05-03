@@ -48,9 +48,15 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">主页<span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">判案文件</a></li>
+                    <li class="active"><a href="/">主页<span class="sr-only">(current)</span></a></li>
+                    <li><a href="/court">法院</a></li>
                 </ul>
+                <form action="http://localhost:9200/jdbc/_search?q=text:财产" method="post" class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="搜索">
+                    </div>
+                    <button type="submit" class="btn btn-default">搜索</button>
+                </form>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>

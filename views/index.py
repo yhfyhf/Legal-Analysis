@@ -3,7 +3,7 @@
 # @Author: yhf
 # @Date:   2015-04-13 18:53:53
 # @Last Modified by:   yhf
-# @Last Modified time: 2015-04-30 23:04:39
+# @Last Modified time: 2015-05-03 23:31:00
 
 from flask import render_template
 from mysite import app
@@ -27,7 +27,3 @@ def page(page_num):
         return render_template('404.html'), 404
     return render_template('index.html', articles=articles, page_num=page_num)
 
-
-@app.route("/article/<int:article_id>", methods=['GET'])
-def article(article_id):
-    return Article.query.filter_by(id=article_id).all()[0].text

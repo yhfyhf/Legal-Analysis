@@ -11,3 +11,5 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://%s:%s@%s/%s" % ("yhf", "123", "
 db = SQLAlchemy(app)
 
 from mysite.views import index
+from mysite.views import article
+from mysite.views import court

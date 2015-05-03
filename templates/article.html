@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <link href="/static/css/article.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4 col-md-2"></div>
+            <div class="col-xs-10 col-md-8">
+                <h2><a href="/article/{{ id }}">{{ article.title }}</a></h2>
+            </div>
+            <div class="col-xs-4 col-md-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-md-2"></div>
+            <div class="col-xs-10 col-md-8">
+                {{ article.court }} <br>
+                {{ article.type }} <br>
+                {{ article.number }} <br>
+            </div>
+            <div class="col-xs-4 col-md-2">
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                {{ article.time }}
+            </div>
+        </div>
+        <br><br>
+        <div class="row">
+            <div class="col-xs-2 col-md-1"></div>
+            <div class="col-xs-14 col-md-10">{{ article.text }}</div>
+            <div class="col-xs-2 col-md-1"></div>
+        </div>
+    </div>
+
+{% endblock %}
