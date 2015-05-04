@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div class="container">
+        <h2>搜索结果</h2>
+        <div class="row">
+            {% for article in articles %}
+                <div class="col-xs-12 col-md-8">
+                    <a href="/article/{{ article.id }}">{{ article.title }}</a>
+                </div>
+                <div class="col-xs-6 col-md-4">
+                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                    {{ article.time }}
+                </div>
+                <div class="col-xs-12 col-md-8">
+                    {{ article.text[:200] }}......
+                </div>
+                <div class="col-xs-6 col-md-4"></div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

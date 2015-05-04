@@ -13,3 +13,4 @@ db = SQLAlchemy(app)
 from mysite.views import index
 from mysite.views import article
 from mysite.views import court
+from mysite.views import search
