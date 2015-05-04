@@ -1,0 +1,59 @@
+{% macro pagination(page_num) %}
+    <nav>
+        {% if page_num == 1 %}
+            <ul class="pagination">
+                <li class="disabled">
+                    <a aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="active"><a href="1">1</a></li>
+                <li><a href="2">2</a></li>
+                <li><a href="3">3</a></li>
+                <li><a href="4">4</a></li>
+                <li><a href="5">5</a></li>
+                <li>
+                    <a href="2" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        {% elif page_num == 2 %}
+            <ul class="pagination">
+                <li>
+                    <a href="1" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li><a href="1">1</a></li>
+                <li class="active"><a href="2">2</a></li>
+                <li><a href="3">3</a></li>
+                <li><a href="4">4</a></li>
+                <li><a href="5">5</a></li>
+                <li>
+                    <a href="3" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        {% elif page_num %}
+            <ul class="pagination">
+                <li>
+                    <a href="{{ page_num - 1 }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li><a href="{{ page_num - 2 }}">{{ page_num - 2 }}</a></li>
+                <li><a href="{{ page_num - 1 }}">{{ page_num - 1 }}</a></li>
+                <li class="active"><a href="{{ page_num }}">{{ page_num }}</a></li>
+                <li><a href="{{ page_num + 1 }}">{{ page_num + 1 }}</a></li>
+                <li><a href="{{ page_num + 2 }}">{{ page_num + 2 }}</a></li>
+                <li>
+                    <a href="{{ page_num + 1 }}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        {% endif %}
+    </nav>
+{% endmacro %}

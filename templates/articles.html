@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <link href="/static/css/articles.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            {% for id, title, time in articles %}
+                <div class="col-xs-12 col-md-8">
+                    <a href="/article/{{ id }}">{{ title }}</a>
+                </div>
+                <div class="col-xs-6 col-md-4">
+                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                    {{ time }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    {% import 'pagination.html' as pagination %}
+    {{ pagination.pagination(page_num) }}
+    
+
+{% endblock %}

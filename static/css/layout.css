@@ -2,6 +2,10 @@ div#main {
     margin-top: 80px;
 }
 
+nav {
+    text-align: center;
+}
+
 footer {
     text-align: center;
 }

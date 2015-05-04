@@ -6,17 +6,16 @@
         <h2>搜索结果</h2>
         <div class="row">
             {% for article in articles %}
-                <div class="col-xs-12 col-md-8">
+                <div class="col-xs-0 col-md-2"></div>
+                <div class="col-xs-18 col-md-12">
                     <a href="/article/{{ article.id }}">{{ article.title }}</a>
-                </div>
-                <div class="col-xs-6 col-md-4">
+                    <br> 
+                    {{ article.text[:200] }}...... 
+                    <br>
                     <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
                     {{ article.time }}
+                    <hr>
                 </div>
-                <div class="col-xs-12 col-md-8">
-                    {{ article.text[:200] }}......
-                </div>
-                <div class="col-xs-6 col-md-4"></div>
             {% endfor %}
         </div>
     </div>

@@ -6,75 +6,26 @@
 
 {% block body %}
     <div class="container">
+        <div class="col-xs-10 col-md-6">
+            <h2>最新文书</h2>
+        </div>
+        <div class="col-xs-8 col-md-6"> 
+            <h2>最热法院</h2>
+        </div>
         <div class="row">
-            {% for id, title, time in articles %}
-                <div class="col-xs-12 col-md-8">
-                    <a href="/article/{{ id }}">{{ title }}</a>
-                </div>
-                <div class="col-xs-6 col-md-4">
+            {% for (id, title, time), (court, c) in zip %}
+                <div class="col-xs-10 col-md-6">
+                    <a href="/article/{{ id }}">{{ title[:15] }}...</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
                     {{ time }}
+                </div>
+                <div class="col-xs-8 col-md-6">
+                    <a href="/court/{{ court }}/page/1">{{ court }}</a>
+                    <span class="badge">{{ c }}</span>
                 </div>
             {% endfor %}
         </div>
     </div>
-
-    <nav>
-        {% if page_num == 1 %}
-            <ul class="pagination">
-                <li class="disabled">
-                    <a aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="active"><a href="/page/1">1</a></li>
-                <li><a href="/page/2">2</a></li>
-                <li><a href="/page/3">3</a></li>
-                <li><a href="/page/4">4</a></li>
-                <li><a href="/page/5">5</a></li>
-                <li>
-                    <a href="/page/2" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        {% elif page_num == 2 %}
-            <ul class="pagination">
-                <li>
-                    <a href="/page/1" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li><a href="/page/1">1</a></li>
-                <li class="active"><a href="/page/2">2</a></li>
-                <li><a href="/page/3">3</a></li>
-                <li><a href="/page/4">4</a></li>
-                <li><a href="/page/5">5</a></li>
-                <li>
-                    <a href="/page/3" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        {% elif page_num %}
-            <ul class="pagination">
-                <li>
-                    <a href="/page/{{ page_num + 1 }}" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li><a href="/page/{{ page_num - 2 }}">{{ page_num - 2 }}</a></li>
-                <li><a href="/page/{{ page_num - 1 }}">{{ page_num - 1 }}</a></li>
-                <li class="active"><a href="/page/{{ page_num }}">{{ page_num }}</a></li>
-                <li><a href="/page/{{ page_num + 1 }}">{{ page_num + 1 }}</a></li>
-                <li><a href="/page/{{ page_num + 2 }}">{{ page_num + 2 }}</a></li>
-                <li>
-                    <a href="/page/{{ page_num + 1 }}" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        {% endif %}
-    </nav>
 
 {% endblock %}
