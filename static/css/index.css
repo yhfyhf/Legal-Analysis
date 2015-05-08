@@ -1,3 +1,12 @@
-.row div.col-md-8 {
-    font-size: 20px;
+.articles td {
+    width: 350px;
+}
+
+.courts:first-child {
+    width: 450px;
+    margin-right: 50px;
+}
+
+.courts span {
+    width: 40px;
 }

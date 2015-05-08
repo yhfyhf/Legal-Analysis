@@ -3,12 +3,12 @@
 # @Author: yhf
 # @Date:   2015-05-03 22:49:20
 # @Last Modified by:   yhf
-# @Last Modified time: 2015-05-04 23:37:32
+# @Last Modified time: 2015-05-08 08:08:59
 
 from flask import render_template
 from sqlalchemy.sql import func
 from mysite import app, db
-from mysite.models.article import Article
+from mysite.model.article import Article
 from mysite.views.index import NUM_ARTICLES_PER_PAGE
 
 

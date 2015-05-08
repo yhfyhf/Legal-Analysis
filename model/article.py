@@ -3,12 +3,13 @@
 # @Author: yhf
 # @Date:   2015-04-13 19:19:42
 # @Last Modified by:   yhf
-# @Last Modified time: 2015-05-02 21:01:53
+# @Last Modified time: 2015-05-08 07:55:37
 
 from mysite import db
+from mysite.model import SerializableModel
 
 
-class Article(db.Model):
+class Article(db.Model, SerializableModel):
 
     __tablename__ = 'judgement'
 
@@ -18,3 +19,6 @@ class Article(db.Model):
     court = db.Column(db.String(100))
     time = db.Column(db.String(100))
     text = db.Column(db.String(10000))
+
+    def __repr__(self):
+        return '<Article %d>' % self.id

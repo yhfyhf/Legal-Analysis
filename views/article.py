@@ -3,11 +3,11 @@
 # @Author: yhf
 # @Date:   2015-05-03 22:02:06
 # @Last Modified by:   yhf
-# @Last Modified time: 2015-05-03 22:33:13
+# @Last Modified time: 2015-05-08 08:00:22
 
 from flask import render_template
 from mysite import app
-from mysite.models.article import Article
+from mysite.model.article import Article
 
 
 @app.route("/article/<int:article_id>", methods=['GET'])
