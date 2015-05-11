@@ -19,3 +19,4 @@ from mysite.views import search
 
 from mysite.api import courts
 from mysite.api import articles
+from mysite.api import search

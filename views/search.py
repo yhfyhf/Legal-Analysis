@@ -3,7 +3,7 @@
 # @Author: yhf
 # @Date:   2015-05-04 17:24:11
 # @Last Modified by:   yhf
-# @Last Modified time: 2015-05-04 22:06:36
+# @Last Modified time: 2015-05-11 15:44:38
 
 from flask import request, render_template
 from mysite import app
@@ -18,10 +18,5 @@ def search():
     if data.get('error', None):
         return "no result"
     items = data['hits']['hits']
-    ret = list()
-    for item in items:
-        if (item['_score'] < 0.1):
-            continue
-        print len(item['_source'])
-        ret.append(item['_source'])
+    ret = [item['_source'] for item in items if item['_score'] >= 0.1]
     return render_template('search.html', articles=ret)

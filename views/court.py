@@ -3,7 +3,7 @@
 # @Author: yhf
 # @Date:   2015-05-03 22:49:20
 # @Last Modified by:   yhf
-# @Last Modified time: 2015-05-08 08:08:59
+# @Last Modified time: 2015-05-11 16:08:36
 
 from flask import render_template
 from sqlalchemy.sql import func
@@ -15,6 +15,7 @@ from mysite.views.index import NUM_ARTICLES_PER_PAGE
 NUM_COURTS_PER_PAGE = 30
 
 
+@app.route('/court/', defaults={'page_num': 1})
 @app.route("/court/page/<int:page_num>")
 def court_page(page_num):
     """法院的排行
@@ -27,6 +28,7 @@ def court_page(page_num):
     return render_template('court.html', courts=courts, page_num=page_num)
 
 
+@app.route('/court/<court_name>/', defaults={'page_num': 1})
 @app.route("/court/<court_name>/page/<int:page_num>", methods=['GET'])
 def court_home_page(court_name, page_num):
     """法院的主页
@@ -39,3 +41,4 @@ def court_home_page(court_name, page_num):
         return render_template('404.html'), 404
     return render_template('articles.html', articles=articles, page_num=page_num,
         court=True, court_name=court_name)
+
