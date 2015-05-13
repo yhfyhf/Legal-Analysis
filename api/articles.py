@@ -3,7 +3,7 @@
 # @Author: yhf
 # @Date:   2015-05-08 08:57:06
 # @Last Modified by:   yhf
-# @Last Modified time: 2015-05-08 09:34:12
+# @Last Modified time: 2015-05-11 16:30:32
 
 from flask import request, jsonify
 from sqlalchemy.sql import func
@@ -36,3 +36,8 @@ def articles():
             "articles": [a.to_dict() for a in articles]
         })
     return ret, 200, CONTENTTYPE
+
+@app.route("/api/article/<int:article_id>", methods=['GET'])
+def article_api(article_id):
+    article = Article.query.filter_by(id=article_id).all()[0]
+    return jsonify({"article": article.to_dict()}), 200, CONTENTTYPE
